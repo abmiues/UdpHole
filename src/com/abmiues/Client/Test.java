@@ -1,4 +1,4 @@
-package com.abmiues;
+package com.abmiues.Client;
 
 import java.io.IOException;
 

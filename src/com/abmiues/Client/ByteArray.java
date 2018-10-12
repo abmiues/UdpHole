@@ -1,4 +1,4 @@
-package com.abmiues;
+package com.abmiues.Client;
 
 import java.io.UnsupportedEncodingException;
 
@@ -106,6 +106,10 @@ public class ByteArray {
     }
 
     
+    public int  ReadFirstInt() {
+		return byteArrayToInt(_buf, 0);
+	}
+    
     /*
      * 读取整形, 大端
     */
@@ -163,9 +167,14 @@ public class ByteArray {
     
     public void WriteBytes(byte[] bytes,int length)
     {
-        System.arraycopy(bytes, 0, _buf, _len, length);
-        _len += length;
+    	WriteBytes(bytes,0,length);
+        //System.arraycopy(bytes, 0, _buf, _len, length);
+        //_len += length;
     }
+    public void  WriteBytes(byte[] bytes,int srcPos,int length) {
+    	System.arraycopy(bytes, srcPos, _buf, _len, length);
+    	_len += length;
+	}
 
     public String ReadStringUInt()
     {
